@@ -1,19 +1,14 @@
 package com.Testing;
 
-import java.io.File;
-
-import com.Recursion.FileSystem;
+import com.Recursion.BinaryRecursion;
 
 public class Main{
-
-	//Basic Change
-	
 	
 	public static void main(String[] args) {
-			
-		File obj = new File("C:\\Users\\Thumb\\Desktop\\Books\\Java");
 		
-		long value = FileSystem.diskUsage(obj);
+		int [] arr = {1,2,3};
+		
+		int value = BinaryRecursion.binarySum(arr, 0, arr.length-1);
 		
 		System.out.println(value);
 	}	
