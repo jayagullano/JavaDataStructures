@@ -31,5 +31,18 @@ public class LinearRecursion {
 		return value * power(value, pow-1);		//invokes the current value multipled by the next value
 												//until 1
 	}
+	
+	/* This displays the fibonacci sequence bounded by n, the amount of numbers to print */
+	public static long[] fibonacci(int n) {
+		
+		if(n <= 1) {
+			long [] answer = {n, 0};
+			return answer;
+		} else {
+			long [] temp = fibonacci(n-1);
+			long [] answer = {temp[0] + temp[1], temp[0]};
+			return answer;
+		}
+	}
 }
 
