@@ -12,20 +12,21 @@ package com.Testing;
  * 			
  * 		1) You can have all imports, packages, modifiers prewritten.
  * 		2) Time stops once you hit run (regardless of compile speed).
+ * 		3) Check your work upon completion, if work is incorrect time is invalid.
  * 
  * Best Time: 
  * 		
- * 		i) Insertion Sort : 42 s
+ * 		i) Insertion Sort : 37 s
  *
  */
 
 public class SortingAlgorithmTest {
 	
-	/**
+	/************************************************
 	 * Insertion Sort Section
-	 */
-	
-	static void ins(int [] arr) {
+	 ***********************************************/
+
+	public static void ins(int []arr) {
 		for(int i = 1; i < arr.length; i++) {
 			int e = arr[i];
 			int j = i;
@@ -33,10 +34,11 @@ public class SortingAlgorithmTest {
 				arr[j] = arr[j-1];
 				j--;
 			}
-			
 			arr[j] = e;
 		}
 	}
+	
+	/***********************************************/
 	
 	
 
