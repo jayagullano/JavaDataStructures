@@ -26,11 +26,11 @@ public class SortingAlgorithmTest {
 	 * Insertion Sort Section
 	 ***********************************************/
 
-	public static void ins(int []arr) {
+	public static void ins(int [] arr) {
 		for(int i = 1; i < arr.length; i++) {
 			int e = arr[i];
 			int j = i;
-			while(j > 0 && arr[j-1] > e) {
+			while(j>0&&arr[j-1] > e) {
 				arr[j] = arr[j-1];
 				j--;
 			}

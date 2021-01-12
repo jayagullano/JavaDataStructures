@@ -1,18 +1,14 @@
 package com.Testing;
 
+import com.Algorithms.*;
 import java.util.Arrays;
 
 public class Main{
 	
 	public static void main(String[] args) {
 		
-		int [] arr = {3,1,2};
-		
-		SortingAlgorithmTest.ins(arr);
-		
-		Arrays.stream(arr).forEach(System.out::println);
-		
-		
+		String val = "12345";
+		System.out.println(val.length());
 	}	
 }
    

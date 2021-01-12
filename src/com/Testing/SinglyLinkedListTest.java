@@ -20,16 +20,13 @@ package com.Testing;
  * 		ii) Field Values : 
  * 		iii) Accessors :
  * 		iv) Mutators :
- * 		v) Entire Class : 4m 5s
+ * 		v) Entire Class : 3m 39s
  *
  */
 
 public class SinglyLinkedListTest<E> {
 	
-
-	/* Static Node Class */
-	
-	static class Node<E>{
+	static class Node<E> {
 		private E e;
 		private Node<E> n;
 		public Node(E e, Node<E> n) {
@@ -37,21 +34,16 @@ public class SinglyLinkedListTest<E> {
 			this.n = n;
 		}
 		public E getElement() { return e; }
-		public Node<E> getNext() { return n; }
+		public Node<E> getNext()  { return n; }
 		public void setNext(Node<E> n) { this.n = n; }
-		
 	}
-
 	
-	/* Field Values */
 	private Node<E> head = null;
 	private Node<E> tail = null;
 	private int size = 0;
 	private SinglyLinkedListTest() {}
-
 	
-	/* Base Accessors */
-	public int getSize() { return size; }
+	public int size() { return size; }
 	public boolean isEmpty() { return size == 0; }
 	public E first() {
 		if(isEmpty()) return null;
@@ -62,12 +54,8 @@ public class SinglyLinkedListTest<E> {
 		return tail.getElement();
 	}
 	
-
-	
-	/* Mutators */
-	
 	public void addFirst(E e) {
-		head = new Node<>(e, head);
+		head = new Node<E>(e, head);
 		if(isEmpty()) tail = head;
 		size++;
 	}
@@ -87,10 +75,31 @@ public class SinglyLinkedListTest<E> {
 		size--;
 		if(isEmpty()) tail = null;
 		return elem;
+		
 	}
+	
 	
 	
 		
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

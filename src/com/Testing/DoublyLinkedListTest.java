@@ -27,13 +27,12 @@ package com.Testing;
  */
 
 public class DoublyLinkedListTest<E> {
-
-	/* Node Class */
-	static class Node<E>{
+	
+	public static class Node<E> {
 		private E e;
-		private Node<E> n;
 		private Node<E> p;
-		public Node(E e,  Node<E> p, Node<E> n) {
+		private Node<E> n;
+		public Node(E e, Node<E> p, Node<E> n) {
 			this.e = e;
 			this.p = p;
 			this.n = n;
@@ -41,31 +40,23 @@ public class DoublyLinkedListTest<E> {
 		public E getElement() { return e; }
 		public Node<E> getNext() { return n; }
 		public Node<E> getPrev() { return p; }
-		public void setNext(Node<E> n) {this.n = n;}
+		public void setNext(Node<E> n) { this.n = n; }
 		public void setPrev(Node<E> p) { this.p = p; }
 		
 	}
 	
-	/* Instance Variables */
-
 	private Node<E> header;
 	private Node<E> trailer;
 	private int size;
 	
-	
-	
-	/* Constructor */
 	public DoublyLinkedListTest() {
 		header = new Node<>(null, null, null);
 		trailer = new Node<>(null, header, null);
 		header.setNext(trailer);
 	}
-
-
 	
-	/* Accessor */
-	public int getSize() {return size; }
-	public boolean isEmpty() {return size == 0; }
+	public int size() { return size; }
+	public boolean isEmpty() { return size == 0; }
 	public E first() {
 		if(isEmpty()) return null;
 		return header.getNext().getElement();
@@ -74,13 +65,13 @@ public class DoublyLinkedListTest<E> {
 		if(isEmpty()) return null;
 		return trailer.getNext().getElement();
 	}
-
-
 	
-	/* Wrapper Mutators */
+	public Node<E> getFirst() { return header.getNext(); }
+	
 	public void addFirst(E e) {
 		addBetween(e, header, header.getNext());
 	}
+	
 	public void addLast(E e) {
 		addBetween(e, trailer.getPrev(), trailer);
 	}
@@ -93,11 +84,6 @@ public class DoublyLinkedListTest<E> {
 		return remove(trailer.getPrev());
 	}
 	
-
-
-	
-	/* Private Mutators */
-	
 	private void addBetween(E e, Node<E> prev, Node<E> next) {
 		Node<E> newest = new Node<>(e, prev, next);
 		prev.setNext(newest);
@@ -108,12 +94,31 @@ public class DoublyLinkedListTest<E> {
 	private E remove(Node<E> n) {
 		Node<E> prev = n.getPrev();
 		Node<E> next = n.getNext();
-		
 		prev.setNext(next);
 		next.setPrev(prev);
 		size--;
 		return n.getElement();
+		
 	}
-	
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
