@@ -28,16 +28,17 @@ package com.Testing;
 
 public class DoublyLinkedListTest<E> {
 	
-	public static class Node<E> {
-		private E e;
-		private Node<E> p;
+	/* Static Node Class */
+	static class Node<E>{
+		private E elem;
 		private Node<E> n;
+		private Node<E> p;
 		public Node(E e, Node<E> p, Node<E> n) {
-			this.e = e;
-			this.p = p;
+			this.elem = e;
 			this.n = n;
+			this.p = p;
 		}
-		public E getElement() { return e; }
+		public E getElement() { return elem; }
 		public Node<E> getNext() { return n; }
 		public Node<E> getPrev() { return p; }
 		public void setNext(Node<E> n) { this.n = n; }
@@ -45,28 +46,33 @@ public class DoublyLinkedListTest<E> {
 		
 	}
 	
+	/* Fields */
+	
 	private Node<E> header;
 	private Node<E> trailer;
 	private int size;
 	
+	/* Constructor */
 	public DoublyLinkedListTest() {
 		header = new Node<>(null, null, null);
 		trailer = new Node<>(null, header, null);
 		header.setNext(trailer);
 	}
 	
-	public int size() { return size; }
-	public boolean isEmpty() { return size == 0; }
+	/* Accessor Methods */
+	
+	public int getSize() { return size; }
+	public boolean isEmpty() { return size==0; }
 	public E first() {
-		if(isEmpty()) return null;
+		if(size==0) return null;
 		return header.getNext().getElement();
 	}
 	public E last() {
-		if(isEmpty()) return null;
+		if(size==0) return null;
 		return trailer.getNext().getElement();
 	}
 	
-	public Node<E> getFirst() { return header.getNext(); }
+	/* Wrapper Methods */
 	
 	public void addFirst(E e) {
 		addBetween(e, header, header.getNext());
@@ -84,10 +90,12 @@ public class DoublyLinkedListTest<E> {
 		return remove(trailer.getPrev());
 	}
 	
-	private void addBetween(E e, Node<E> prev, Node<E> next) {
-		Node<E> newest = new Node<>(e, prev, next);
-		prev.setNext(newest);
-		next.setPrev(newest);
+	/* Private Mutators */
+	
+	private void addBetween (E e, Node<E> p, Node<E> n) {
+		Node<E> newest = new Node<>(e, p, n);
+		p.setNext(newest);
+		n.setPrev(newest);
 		size++;
 	}
 	
@@ -98,7 +106,6 @@ public class DoublyLinkedListTest<E> {
 		next.setPrev(prev);
 		size--;
 		return n.getElement();
-		
 	}
 }
 

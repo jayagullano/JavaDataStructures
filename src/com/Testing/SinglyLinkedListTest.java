@@ -26,7 +26,11 @@ package com.Testing;
 
 public class SinglyLinkedListTest<E> {
 	
-	static class Node<E> {
+	/**
+	 * Static Node<E> Class
+	 */
+	
+	public static class Node<E>{
 		private E e;
 		private Node<E> n;
 		public Node(E e, Node<E> n) {
@@ -34,51 +38,54 @@ public class SinglyLinkedListTest<E> {
 			this.n = n;
 		}
 		public E getElement() { return e; }
-		public Node<E> getNext()  { return n; }
+		public Node<E> getNext() { return n; }
 		public void setNext(Node<E> n) { this.n = n; }
 	}
 	
-	private Node<E> head = null;
-	private Node<E> tail = null;
+	/* Fields */
+	
+	public Node<E> head = null;
+	public Node<E> tail = null;
 	private int size = 0;
 	private SinglyLinkedListTest() {}
 	
-	public int size() { return size; }
-	public boolean isEmpty() { return size == 0; }
+	/* Accessor Methods */
+	
+	public int getSize() { return size; }
+	public boolean isEmpty() { return size==0; }
 	public E first() {
-		if(isEmpty()) return null;
+		if(size==0) return null;
 		return head.getElement();
 	}
 	public E last() {
-		if(isEmpty()) return null;
+		if(size==0) return null;
 		return tail.getElement();
 	}
 	
+	/* Mutator Methods */
+	
 	public void addFirst(E e) {
-		head = new Node<E>(e, head);
-		if(isEmpty()) tail = head;
+		head = new Node<>(e, head);
+		if(size==0) tail = head;
 		size++;
 	}
 	
 	public void addLast(E e) {
 		Node<E> newest = new Node<>(e, null);
-		if(isEmpty()) head = newest;
+		if(size==0) head = newest;
 		else tail.setNext(newest);
 		tail = newest;
 		size++;
 	}
 	
 	public E removeFirst() {
-		if(isEmpty()) return null;
+		if(size==0) return null;
 		E elem = head.getElement();
 		head = head.getNext();
 		size--;
-		if(isEmpty()) tail = null;
+		if(size==0) tail = null;
 		return elem;
-		
 	}
-	
-	
 	
 		
 }

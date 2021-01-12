@@ -1,14 +1,14 @@
 package com.Testing;
 
-import com.Algorithms.*;
-import java.util.Arrays;
+import com.QueueADT.*;
 
 public class Main{
 	
 	public static void main(String[] args) {
 		
-		String val = "12345";
-		System.out.println(val.length());
+		String [] arr = {"John", "Rolando", "Philip", "Rodney", "Gunter"};
+		
+		System.out.println("The first winner is : " + Josephus.Josephus(Josephus.buildQueue(arr), 3));
 	}	
 }
    
