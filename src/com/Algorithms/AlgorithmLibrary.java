@@ -2,7 +2,7 @@ package com.Algorithms;
 
 import com.StackADT.Stack;
 import com.StackADT.ArrayStack;
-import com.StackADT.LinkedListStack;
+import com.StackADT.SinglyLinkedListStack;
 
 public class AlgorithmLibrary {
 	
@@ -29,7 +29,7 @@ public class AlgorithmLibrary {
 	public static boolean isMatched(String expression) {
 		final String opening = "({[";
 		final String closing = ")}]";
-		Stack<Character> buffer = new LinkedListStack<>();
+		Stack<Character> buffer = new SinglyLinkedListStack<>();
 		for(char c : expression.toCharArray()) {
 			if(opening.indexOf(c) != -1) 
 				buffer.push(c);
@@ -49,7 +49,7 @@ public class AlgorithmLibrary {
 	 * @return
 	 */
 	public static boolean isHTMLMatched(String html) {
-		Stack<String> buffer = new LinkedListStack<>(); //Create a stack of String to hold the braces
+		Stack<String> buffer = new SinglyLinkedListStack<>(); //Create a stack of String to hold the braces
 		int j = html.indexOf('<');						//Retrieves the < referring to the root tag.
 		while (j != -1) {								//While there index is valid, meaning it exists in the html
 			int k = html.indexOf('>', j+1);				
