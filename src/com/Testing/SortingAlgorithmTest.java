@@ -26,7 +26,7 @@ public class SortingAlgorithmTest {
 	 * Insertion Sort Section
 	 ***********************************************/
 
-	public static void ins(int [] arr) {
+	public static void ins(int []arr) {
 		for(int i = 1; i < arr.length; i++) {
 			int e = arr[i];
 			int j = i;
@@ -35,6 +35,7 @@ public class SortingAlgorithmTest {
 				j--;
 			}
 			arr[j] = e;
+			
 		}
 	}
 	

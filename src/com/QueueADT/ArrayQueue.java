@@ -7,7 +7,7 @@ package com.QueueADT;
  * @version 1.0
  * 
  * This is a testing Queue ADT implementation, where the underlying
- * container is an array.
+ * container is a circular array.
  *
  */
 

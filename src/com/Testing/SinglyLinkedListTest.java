@@ -26,13 +26,9 @@ package com.Testing;
 
 public class SinglyLinkedListTest<E> {
 	
-	/**
-	 * Static Node<E> Class
-	 */
-	
 	public static class Node<E>{
 		private E e;
-		private Node<E> n;
+		private Node<E> n; 
 		public Node(E e, Node<E> n) {
 			this.e = e;
 			this.n = n;
@@ -43,16 +39,13 @@ public class SinglyLinkedListTest<E> {
 	}
 	
 	/* Fields */
-	
-	public Node<E> head = null;
-	public Node<E> tail = null;
+	private Node<E> head = null;
+	private Node<E> tail = null;
 	private int size = 0;
 	private SinglyLinkedListTest() {}
 	
-	/* Accessor Methods */
-	
-	public int getSize() { return size; }
-	public boolean isEmpty() { return size==0; }
+	public int size() { return size; }
+	public boolean isEmpty() { return size == 0; }
 	public E first() {
 		if(size==0) return null;
 		return head.getElement();
@@ -61,8 +54,6 @@ public class SinglyLinkedListTest<E> {
 		if(size==0) return null;
 		return tail.getElement();
 	}
-	
-	/* Mutator Methods */
 	
 	public void addFirst(E e) {
 		head = new Node<>(e, head);
@@ -80,11 +71,11 @@ public class SinglyLinkedListTest<E> {
 	
 	public E removeFirst() {
 		if(size==0) return null;
-		E elem = head.getElement();
+		E element = head.getElement();
 		head = head.getNext();
 		size--;
 		if(size==0) tail = null;
-		return elem;
+		return element;
 	}
 	
 		
