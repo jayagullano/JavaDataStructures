@@ -30,7 +30,6 @@ public class CircularLinkedListTest<E> {
 			this.e = e;
 			this.tail = tail;
 		}
-		
 		public E getElement() { return e; }
 		public Node<E> getNext() { return tail; }
 		public void setNext(Node<E> n) { tail = n; }
@@ -40,21 +39,20 @@ public class CircularLinkedListTest<E> {
 	private int size = 0;
 	private CircularLinkedListTest() {}
 	
-	public int size () { return size; } 
+	public int size () { return size; }
 	public boolean isEmpty() { return size==0; }
 	public E first() {
 		if(size==0) return null;
 		return tail.getNext().getElement();
 	}
-	public E last () {
+	public E last() {
 		if(size==0) return null;
 		return tail.getElement();
 	}
 	
 	public void rotate() {
-		if(tail != null) {
+		if(tail != null)
 			tail = tail.getNext();
-		}
 	}
 	
 	public void addFirst(E e) {
@@ -76,8 +74,10 @@ public class CircularLinkedListTest<E> {
 	public E removeFirst() {
 		if(size==0) return null;
 		Node<E> head = tail.getNext();
-		if(head == tail) tail = null;
-		else tail.setNext(head.getNext());
+		if(head == tail) 
+			tail = null;
+		else 
+			tail.setNext(head.getNext());
 		size--;
 		return head.getElement();
 	}

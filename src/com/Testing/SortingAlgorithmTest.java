@@ -31,7 +31,7 @@ public class SortingAlgorithmTest {
 		for(int i = 1; i < arr.length; i++) {
 			int e = arr[i];
 			int j = i;
-			while(j > 0 && arr[j-1] > e) {
+			while ( j > 0 && arr[j-1] > 0) {
 				arr[j] = arr[j-1];
 				j--;
 			}
@@ -52,3 +52,4 @@ public class SortingAlgorithmTest {
 	
 
 }
+ 

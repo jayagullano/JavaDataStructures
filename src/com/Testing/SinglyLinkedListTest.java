@@ -36,7 +36,6 @@ public class SinglyLinkedListTest<E> {
 		public E getElement() { return e; }
 		public Node<E> getNext() { return n; }
 		public void setNext(Node<E> n) { this.n = n; }
-		
 	}
 	
 	private Node<E> head = null;
@@ -45,7 +44,7 @@ public class SinglyLinkedListTest<E> {
 	private SinglyLinkedListTest() {}
 	
 	public int size() { return size; }
-	public boolean isEmpty() { return size==0; }
+	public boolean isEmpty() { return size == 0; }
 	public E first() {
 		if(size==0) return null;
 		return head.getElement();
@@ -77,7 +76,6 @@ public class SinglyLinkedListTest<E> {
 		if(size==0) tail = null;
 		return elem;
 	}
-	
 }
 
 

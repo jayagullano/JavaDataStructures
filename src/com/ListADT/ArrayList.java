@@ -6,7 +6,8 @@ package com.ListADT;
  * @since January 18, 2020
  * @version 1.0
  * 
- * This is an implementation for the List ADT interface.
+ * This is an implementation for the List ADT interface
+ * using a dynamic array to improve on the array implementation.
  *
  */
 
@@ -48,9 +49,10 @@ public class ArrayList<E> implements List<E> {
 	}
 
 	@Override
-	public void add(int i, E e) throws IndexOutOfBoundsException, IllegalStateException {
+	public void add(int i, E e) throws IndexOutOfBoundsException {
 		checkIndex(i, size + 1);
-		if(size==data.length) throw new IllegalStateException("Array is full");
+		//if(size==data.length) throw new IllegalStateException("Array is full");
+			resize(2 * data.length);
 		for(int k = size - 1; k >= i; k--)
 			data[k+1] = data[k];
 		data[i] = e;
@@ -72,6 +74,13 @@ public class ArrayList<E> implements List<E> {
 	protected void checkIndex(int i, int n) throws IndexOutOfBoundsException {
 		if(i < 0 || i >= n)
 			throw new IndexOutOfBoundsException("Illegal index: " + i);
+	}
+	
+	protected void resize (int capacity) {
+		E [] temp = (E []) new Object[capacity];
+		for(int k = 0; k < size; k++)
+			temp[k] = data[k];
+		data = temp;
 	}
 	
 	
