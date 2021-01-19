@@ -28,18 +28,19 @@ package com.Testing;
 
 public class DoublyLinkedListTest<E> {
 	
-	public static class Node<E>{
+	static class Node<E>{
 		private E e;
-		private Node<E> n;
 		private Node<E> p;
+		private Node<E> n;
 		public Node(E e, Node<E> p, Node<E> n) {
 			this.e = e;
-			this.n = n;
 			this.p = p;
+			this.n = n;
+			
 		}
 		public E getElement() { return e; }
-		public Node<E> getNext() { return n; }
-		public Node<E> getPrev() { return p; }
+		public Node<E> getNext(){ return n; }
+		public Node<E> getPrev(){ return p; }
 		public void setNext(Node<E> n) { this.n = n; }
 		public void setPrev(Node<E> p) { this.p = p; }
 	}
@@ -48,7 +49,6 @@ public class DoublyLinkedListTest<E> {
 	private Node<E> trailer;
 	private int size = 0;
 	
-	
 	public DoublyLinkedListTest() {
 		header = new Node<>(null, null, null);
 		trailer = new Node<>(null, header, null);
@@ -56,36 +56,33 @@ public class DoublyLinkedListTest<E> {
 	}
 	
 	public int size() { return size; }
-	public boolean isEmpty() { return size == 0; }
+	public boolean isEmpty() { return size==0; }
 	public E first() {
 		if(size==0) return null;
 		return header.getNext().getElement();
 	}
 	public E last() {
 		if(size==0) return null;
-		return trailer.getPrev().getElement();
+		return trailer.getNext().getElement();
 	}
-	
 	public void addFirst(E e) {
 		addBetween(e, header, header.getNext());
 	}
-	
 	public void addLast(E e) {
 		addBetween(e, trailer.getPrev(), trailer);
 	}
-	
 	public E removeFirst() {
 		return remove(header.getNext());
 	}
-	
 	public E removeLast() {
 		return remove(trailer.getPrev());
 	}
 	
+	
 	private void addBetween(E e, Node<E> prev, Node<E> next) {
 		Node<E> newest = new Node<>(e, prev, next);
 		prev.setNext(newest);
-		next.setPrev(prev);
+		next.setPrev(newest);
 		size++;
 	}
 	

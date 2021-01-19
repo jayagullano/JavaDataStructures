@@ -28,7 +28,7 @@ public class SinglyLinkedListTest<E> {
 	
 	public static class Node<E>{
 		private E e;
-		private Node<E> n; 
+		private Node<E> n;
 		public Node(E e, Node<E> n) {
 			this.e = e;
 			this.n = n;
@@ -36,16 +36,16 @@ public class SinglyLinkedListTest<E> {
 		public E getElement() { return e; }
 		public Node<E> getNext() { return n; }
 		public void setNext(Node<E> n) { this.n = n; }
+		
 	}
 	
-	/* Fields */
 	private Node<E> head = null;
 	private Node<E> tail = null;
 	private int size = 0;
 	private SinglyLinkedListTest() {}
 	
 	public int size() { return size; }
-	public boolean isEmpty() { return size == 0; }
+	public boolean isEmpty() { return size==0; }
 	public E first() {
 		if(size==0) return null;
 		return head.getElement();
@@ -71,14 +71,13 @@ public class SinglyLinkedListTest<E> {
 	
 	public E removeFirst() {
 		if(size==0) return null;
-		E element = head.getElement();
+		E elem = head.getElement();
 		head = head.getNext();
 		size--;
 		if(size==0) tail = null;
-		return element;
+		return elem;
 	}
 	
-		
 }
 
 
